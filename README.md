@@ -4,6 +4,11 @@ No special tuning or handling for failed writes, network partitions, or failover
 Therefore, only appropriate for small number of write operations where you can be reasonable certain of 100% successful writes (ie reliable network and MongoDB server)
 Recommended max: 100 from a remote client or 1000 for a robust datacenter with client colocated with the MongoDB primary.
 
+Module also performs read tests by measuring the duration of a given query across each combination of read concern and read preference. 
+
+### MongoDB Cluster:
+This module is meaningful when run across a MongoDB Cluster that uses multi-region replica set(s) or a Global Cluster with multi-region replica sets.
+
 # Verify that python3 is installed
 python3 --version
 
