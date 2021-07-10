@@ -30,3 +30,10 @@ python3 read_tests.py
 
 ### Read Tests Usage:  Example to run and time 200 tests for each combination of read concern and read preference:
 python3 read_tests.py 200
+
+
+### Configuration for a replica set:
+read_tests.py queries an existing cluster. The query used for the tests can be configured under the variable test_query.
+
+### Configuration for a MongoDB Global Cluster:
+For performing read_tests.py on a MongoDB Global Cluster, put an instance of this code onto a client in one or more local zones. Update app.conf with the local zone code (e.g. "US-VA"). read_test will use this value in test_query for performing the read tests.
