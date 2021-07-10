@@ -1,0 +1,6 @@
+pymongo
+datetime
+pandas
+IPython
+dnspython
+dns
