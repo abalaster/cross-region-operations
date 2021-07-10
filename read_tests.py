@@ -30,6 +30,7 @@ def main(argv):
     db = client.BA
     acct_balance = db.consumer_deposit_account_balance
     acct_transactions = db.consumer_deposit_account_transactions
+    test_query = {"account_entity_id": 764584569, "location": location_value}
     acct_balance.insert_one({"test": True})
     acct_transactions.insert_one({"test": True})
 
@@ -56,8 +57,7 @@ def main(argv):
             results = []
             print("testing read concerns and preference: ", str(concern["read_concern"]), " ", str(concern["read_preference"]))
             for i in range(n):
-                duration = read_one({"account_entity_id": 764584569,
-                                     "location": location_value},
+                duration = read_one(test_query,
                                     collection=acct_balance,
                                     read_preference=concern["read_preference"],
                                     read_concern=concern["read_concern"])
